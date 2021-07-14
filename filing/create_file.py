@@ -36,14 +36,14 @@ class FileCoins:
     def add_this_trans_file(self):
         print(self.private_key)
         print(self.transaction_de_detols)
-        print(self.nonce)
-        x = requests.get("https://a1in1.com/Zuri Coin/Waziri_Coin/file_a_coin.php?\
-            private_key={}&\
-            sender_address={}&\
-            previous_hash={}&\
-            transaction={}&\
-            amount={}".format(self.private_key, self.senders_address, self.previous_hash, self.transaction_de_detols, self.amount )
-        )
+        #print(self.nonce)
+        data = {"private_key":self.private_key,
+            "sender_address": self.senders_address,
+            "previous_hash": self.previous_hash,
+            "transaction" :  self.transaction_de_detols, 
+            "amount": self.amount}
+        x = requests.post("https://a1in1.com/Zuri Coin/Waziri_Coin/file_a_coin.php", data=data)
+
         print(x.text)
         outter = dict(x.json())
         if (outter.get("status") == "true" ):

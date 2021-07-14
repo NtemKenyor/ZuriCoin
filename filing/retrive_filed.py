@@ -20,11 +20,10 @@ class turnfile2Zuri:
 
     def getotherTransDetails(self):
         out = ""
-        coinDet = requests.get("https://a1in1.com/Zuri Coin/Waziri_Coin/get_file_trans.php?\
-            old_transaction={}&\
-            amount={}&\
-            echo={}".format(self.transaction, self.amt, "true")
-        )
+        data = {"old_transaction":self.transaction,
+            "amount": self.amt,
+            "echo": "true"}
+        coinDet = requests.post("https://a1in1.com/Zuri Coin/Waziri_Coin/get_file_trans.php", data=data)
         print(coinDet.text)
         if coinDet.text is not "":
             out = dict(coinDet.json())
@@ -51,13 +50,12 @@ class turnfile2Zuri:
 
     def itHappens(self):
         #this is where the filed coin would be changed to a pending transaction
-        x_data = requests.get("https://a1in1.com/Zuri Coin/Waziri_Coin/_transrecorder_file.php?\
-            ra={}&\
-            transaction={}&\
-            old_transaction={}&\
-            filed_value={}&\
-            amt={}".format(self.receiver_address, self.transaction_de_detols, self.transaction, self.collector_value, self.amt, )
-        )
+        data = {"ra": self.receiver_address,
+            "transaction": self.transaction_de_detols,
+            "old_transaction": self.transaction, 
+            "filed_value": self.collector_value,
+            "amt": self.amt}
+        x_data = requests.post("https://a1in1.com/Zuri Coin/Waziri_Coin/_transrecorder_file.php", data=data)
         print(x_data.text)
         if(x_data is not ""):
             bringer = x_data.json()

@@ -33,12 +33,12 @@ def mine_side():
             """ print(str(nonce) + "->" + i.get("sender_address") + "->" + i.get("receiver_address") + "->" + str(float(i.get("amount"))) + "->" + previous_hash )
             downtown = SHA256(str(nonce) + "->" + i.get("sender_address") + "->" + i.get("receiver_address") + "->" + str(float(i.get("amount"))) + "->" + previous_hash)
             print(downtown)  """
-            ch = requests.get("https://a1in1.com/Zuri Coin/Waziri_Coin/mining_leges.php?\
-                miner_address={}&\
-                block_count={}&\
-                nonce={}&\
-                transaction_py={}".format(reward_address, i.get("count"), nonce, hashed)
-            )
+            data = {"miner_address": reward_address,
+            "block_count":  i.get("count"),
+            "nonce": nonce,
+            "transaction_py": hashed,
+            }
+            ch = requests.post("https://a1in1.com/Zuri Coin/Waziri_Coin/mining_leges.php", data=data)
             print("Hashed Value: {}".format(hashed))
             print(ch.text)
             the_out = dict(ch.json())

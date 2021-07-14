@@ -37,14 +37,14 @@ class Transactions:
         print(self.private_key)
         print(self.transaction_de_detols)
         print(self.nonce)
-        x = requests.get("https://a1in1.com/Zuri Coin/Waziri_Coin/_transrecorder.php?\
-            private_key={}&\
-            sender_address={}&\
-            receiver_address={}&\
-            previous_hash={}&\
-            transaction={}&\
-            amount={}".format(self.private_key, self.senders_address, self.receivers_address, self.previous_hash, self.transaction_de_detols, self.amount )
-        )
+        data = {"private_key": self.private_key,
+            "sender_address": self.senders_address,
+            "receiver_address": self.receivers_address, 
+            "previous_hash": self.previous_hash,
+            "transaction": self.transaction_de_detols, 
+            "amount": self.amount,
+            }
+        x = requests.post("https://a1in1.com/Zuri Coin/Waziri_Coin/_transrecorder.php", data=data)
 
         out = x.text
         print(out)
