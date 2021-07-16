@@ -18,7 +18,7 @@ def mine_side():
     minable_blocks = Minable()
     pending = minable_blocks.get_all()
     print("To mine you need to have a Zuri Wallet Address. You also need upto a minimum amount of Zuri coins in your Wallet. \n \
-         This is to help the community understand that you have invested your financial resource on this project. Before tryiing to Mine.")
+         This is to help the community understand that you have invested your financial resource on this project. Before trying to Mine.")
     reward_address = input("Where should the reward for mining Zuri be sent to? \n")
     for i in pending:
         print(i)

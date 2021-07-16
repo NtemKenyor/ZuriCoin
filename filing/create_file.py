@@ -54,7 +54,7 @@ class FileCoins:
                 if "yes" in firm.lower():
                     the_file = open( str( str(self.amount)+ "Zuri" +self.transaction_de_detols), 'w')
                     the_file.write(str(retrive_key + "\n"))
-                    the_file.write(str(transac_ + "\n"))
+                    the_file.write(str(transac_.get("transaction")) + "\n")
                     the_file.write(str(str(self.amount) + " ZuriCoin" +"\n"))
                     print("Coin saved for retrive")
         
