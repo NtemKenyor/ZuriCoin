@@ -4,7 +4,7 @@ However, You can edit or customise the wallet for yourself based on your knowled
 
 We would divide the Tutorial into different sections for different operating Systems and their users.
 **After Installation**
-For those of you that would not read to the end, We had to put the after installation up here.
+For those of you that would not read to the end, We had to put the after installation up here. After installation, RUN main.py 
 **Window Users**
 
 You would need the Python executable file from python.org . 
@@ -17,8 +17,7 @@ Please add python to your enviromental variables, This way, Python can run from 
 
 If you encounter an Import Error, then you would need to update the version of Pip, update or install Cryptodome from Pip, update or install requests from Pip. (It all depends on the Import file with the problem.)
 
-Please, Install the latest version of Python and do well to(Python 3 >)
-After installation, RUN main.py 
+Please, Install the version(3 >) of Python and do well.
 Goodluck.
 
 **Linux Users**

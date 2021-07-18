@@ -67,9 +67,11 @@ class Wallet:
             url = "https://a1in1.com/Zuri Coin/Waziri_Coin/waziri_d_enter_walletor.php"
             
             response = requests.post(url, data=data)
-            print(self.public_key)
-            print(SHA256(self.private_key))
-            print(self.access_token)
+            print("Please save the keys below. It will be displayed no more.\n")
+            print("Public Key: {} \n".format(self.public_key))
+            print("private Key: {} \n".format(self.private_key))
+            print("access Key: {} \n".format(self.access_token))
+            
             print(response.text)
             data = dict(response.json())
             
